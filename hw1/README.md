@@ -1,7 +1,7 @@
 # HW01: Text Editor Tutorials
 
-Name: <your name here>
-Course: <this course name>
+Name: Haley Harris
+Course: CSC221 - Effective Programming
 
 ## Vim
 
