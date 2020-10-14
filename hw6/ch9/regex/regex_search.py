@@ -38,28 +38,20 @@ def regex_search(folder_path, regex):
             if regex_match:
                 list_of_matches.append(line)
 
-    print(list_of_matches)
+    return list_of_matches
 
 
-folder = '/Users/haleyharris/Desktop/belhavencsc/csc221/hw6/ch9/regex/'
-regex1 = r'salamander'
-regex2 = r'kin*'
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('folder', help='Folder to search for .txt files')
+    parser.add_argument('regex', help='Regular expression to search for')
 
-# regex_search(folder, regex1)
-regex_search(folder, regex2)
+    args = parser.parse_args()
 
+    for line in regex_search(args.folder, args.regex):
+        print(line)
 
-# def main():
-#     parser = argparse.ArgumentParser()
-#     parser.add_argument('folder', help='Folder to search for .txt files')
-#     parser.add_argument('regex', help='Regular expression to search for')
-
-#     args = parser.parse_args()
-
-#     for line in regex_search(args.folder, args.regex):
-#         print(line)
-
-# if __name__=='__main__':
-#     main()
+if __name__=='__main__':
+    main()
 
 
