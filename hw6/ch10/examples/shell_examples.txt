@@ -1,0 +1,54 @@
+>>> import shutil, os
+>>> from pathlib import Path
+>>> p = Path('/Users/haleyharris/Desktop/belhavencsc/csc221/hw6/ch10/examples')
+>>> shutil.copy(p / 'spam.txt', p / 'some_folder')
+'/Users/haleyharris/Desktop/belhavencsc/csc221/hw6/ch10/examples/some_folder/spam.txt'
+>>> shutil.copy(p / 'eggs.txt', p / 'some_folder/eggs2.txt')
+PosixPath('/Users/haleyharris/Desktop/belhavencsc/csc221/hw6/ch10/examples/some_folder/eggs2.txt')
+>>>  shutil.copytree(p / 'spam', p / 'spam_backup')
+PosixPath('/Users/haleyharris/Desktop/belhavencsc/csc221/hw6/ch10/examples/spam_backup')
+>>> shutil.move('bacon.txt', '/eggs/')
+>>> shutil.move('bacon.txt', 'eggs/')
+'eggs/bacon.txt'
+>>> shutil.move('bacon.txt', 'eggs/new_bacon.txt')
+'eggs/new_bacon.txt'
+>>> import send2trash
+>>> bacon_file = open('eggs/bacon.txt', 'a')
+>>> bacon_file.write('Bacon is not a vegetable.')
+25
+>>> bacon_file.close()
+>>> send2trash.send2trash('eggs/bacon.txt')
+>>> import zipfile
+>>> example_zip = zipfile.ZipFile(p/'example.zip')
+>>> example_zip = zipfile.ZipFile(p/'zip_examples')
+>>> example_zip = zipfile.ZipFile(p/'zip_examples.zip')
+>>> example_zip.namelist()
+['zip_examples/',
+ 'zip_examples/cats/',
+ 'zip_examples/cats/catnames.txt',
+ 'zip_examples/cats/zophie.jpg',
+ 'zip_examples/spam.txt',
+ 'zip_examples/.zip']
+>>> spam_info = example_zip.getinfo('spam.txt')
+>>> spam_info = example_zip.getinfo('zip_examples/spam.txt')
+>>> spam_info.file_size()
+>>> spam_info.file_size
+12
+>>> spam_info.compress_size
+14
+>>> f'Compressed file is {round(spam_info.file_size / spam_info.compress_size, 2)}x smaller!'
+'Compressed file is 0.86x smaller!'
+>>> example_zip.close()
+>>> example_zip = zipfile.ZipFile(p/'zip_examples.zip')
+>>> example_zip.extractall()
+>>> example_zip.close()
+>>> example_zip.extract('spam.txt')
+>>> example_zip.extract('zip_examples/spam.txt')
+>>> example_zip = zipfile.ZipFile(p/'zip_examples.zip')
+>>> example_zip.extract('zip_examples/spam.txt')
+'/Users/haleyharris/Desktop/belhavencsc/csc221/hw6/ch10/examples/zip_examples/spam.txt'
+>>> example_zip.close()
+>>> new_zip = zipfile.ZipFile('new.zip', 'w')
+>>> new_zip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)
+>>> new_zip.close()
+>>> %history -o -p -f shell_examples.txt
