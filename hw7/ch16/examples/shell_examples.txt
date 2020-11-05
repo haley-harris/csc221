@@ -1,0 +1,94 @@
+>>> pwd
+'/Users/haleyharris/Desktop/belhavencsc/csc221/hw7/ch16/examples'
+>>> ls
+>>> import csv
+>>> example = open('example.csv')
+>>> example_reader = csv.reader(example)
+>>> example_data = list(example_reader)
+>>> example_data
+[['4/5/2014 13:34', 'Apples', '73'],
+ ['4/5/2014 3:41', 'Cherries', '85'],
+ ['4/6/2014 12:46', 'Pears', '14'],
+ ['4/8/2014 8:59', 'Oranges', '52'],
+ ['4/10/2014 2:07', 'Apples', '152'],
+ ['4/10/2014 18:10', 'Bananas', '23'],
+ ['4/10/2014 2:40', 'Strawberries', '98']]
+>>> example_data[0][0]
+'4/5/2014 13:34'
+>>> example_data[0][1]
+'Apples'
+>>> example_data[0][2]
+'73'
+>>> example_data[1][1]
+'Cherries'
+>>> example_data[6][1]
+'Strawberries'
+>>> for row in example_reader:
+...     print('Row #' + str(example_reader.line_num) + '' + str(row))
+...
+>>> example_file = open('example.csv')
+>>> example_reader = csv.reader(example_file)
+>>> for row in example_reader:
+...     print('Row #' + str(example_reader.line_num) + '' + str(row))
+...
+>>> output_file = open('output.csv', 'w', newline='')
+>>> output_writer = csv.writer(output_file)
+>>> output_writer.writerow(['spam', 'eggs', 'bacon', 'ham'])
+21
+>>> output_writer.writerow(['Hello, world!', 'eggs', 'bacon', 'ham'])
+32
+>>> output_writer.writerow([1, 2, 3.141592, 4])
+16
+>>> output_file.close()
+>>> ls
+>>> csv_file = open('example.tsv', 'w', newline='')
+>>> csv_writer = csv.writer(csv_file, delimiter='\t', lineterminator='\n\n')
+>>> csv_writer.writerow(['apples', 'oranges', 'grapes'])
+23
+>>> csv_writer.writerow(['eggs', 'bacon', 'ham'])
+16
+>>> csv_writer.writerow(['spam', 'spam', 'spam', 'spam', 'spam', 'spam'])
+31
+>>> csv_file.close()
+>>> ls
+>>> example = open('exampleWithHeaders.csv')
+>>> ls
+>>> example = open('exampleWithHeader.csv')
+>>> example_dict_reader = csv.DictReader(example)
+>>> for row in example_dict_reader:
+...     print(row['Timestamp'], row['Fruit'], row['Quantity'])
+...
+>>> example = open('example.csv')
+>>> example_dict_reader = csv.DictReader(example, ['time', 'name', 'amount'])
+>>> for row in example_dict_reader:
+...     print(row['time'], row['name'], row['amount'])
+...
+>>> output = open('output.csv', 'w', newline='')
+>>> output_dict_writer = csv.DictWriter(output, ['Name', 'Pet', 'Phone'])
+>>> output_dict_writer.writeheader()
+>>> output_dict_writer.writerow({'Name': 'Alice', 'Pet': 'cat', 'Phone': '555-
+... 1234'})
+...
+>>> output_dict_writer.writerow({'Name': 'Alice', 'Pet': 'cat', 'Phone': '555-1234'})
+20
+>>> output_dict_writer.writerow({'Name': 'Bob', 'Phone': '555-9999'})
+15
+>>> output_dict_writer.writerow({'Phone': '555-5555', 'Name': 'Carol', 'Pet': 'dog'})
+20
+>>> output.close()
+>>> pwd
+'/Users/haleyharris/Desktop/belhavencsc/csc221/hw7/ch16/examples'
+>>> srting_of_jsondata = '{"name": "Zophie", "is_cat": true, "mice_caught":0, "feline_iq": null}'
+>>> import json
+>>> jsondata_as_python_value = json.loads(string_of_jsondata)
+>>> string_of_jsondata = '{"name": "Zophie", "is_cat": true, "mice_caught":0, "feline_iq": null}'
+>>> jsondata_as_python_value = json.loads(string_of_jsondata)
+>>> jsondata_as_python_value
+{'name': 'Zophie', 'is_cat': True, 'mice_caught': 0, 'feline_iq': None}
+>>> python_value = {'is_cat': True, 'mice_caught': 0, 'name': 'Zophie'}
+>>> python_value = {'is_cat': True, 'mice_caught': 0, 'name': 'Zophie', 'feline_iq': null}
+>>> python_value = {'is_cat': True, 'mice_caught': 0, 'name': 'Zophie', 'feline_iq': None}
+>>> string_of_jsondata = json.dumps(python_value)
+>>> string_of_jsondata
+'{"is_cat": true, "mice_caught": 0, "name": "Zophie", "feline_iq": null}'
+>>> %history -o -p -f shell_examples.txt
