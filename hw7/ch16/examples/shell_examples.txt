@@ -50,9 +50,7 @@
 >>> csv_writer.writerow(['spam', 'spam', 'spam', 'spam', 'spam', 'spam'])
 31
 >>> csv_file.close()
->>> ls
 >>> example = open('exampleWithHeaders.csv')
->>> ls
 >>> example = open('exampleWithHeader.csv')
 >>> example_dict_reader = csv.DictReader(example)
 >>> for row in example_dict_reader:
@@ -78,9 +76,7 @@
 >>> output.close()
 >>> pwd
 '/Users/haleyharris/Desktop/belhavencsc/csc221/hw7/ch16/examples'
->>> srting_of_jsondata = '{"name": "Zophie", "is_cat": true, "mice_caught":0, "feline_iq": null}'
 >>> import json
->>> jsondata_as_python_value = json.loads(string_of_jsondata)
 >>> string_of_jsondata = '{"name": "Zophie", "is_cat": true, "mice_caught":0, "feline_iq": null}'
 >>> jsondata_as_python_value = json.loads(string_of_jsondata)
 >>> jsondata_as_python_value
