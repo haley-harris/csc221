@@ -4,7 +4,6 @@
 
 import pyautogui, time
 
-pyautogui.FAILSAFE = True
 starting_position = (1423, 820)
 
 print('Starting program - press CTRL-C to quit')
