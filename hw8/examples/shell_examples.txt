@@ -1,0 +1,71 @@
+>>> import pyautogui
+>>> wh = pyautogui.size()
+>>> wh
+Size(width=1440, height=900)
+>>> wh[0]
+1440
+>>> wh.width
+1440
+>>> for i in range(5):
+...     pyautogui.moveTo(100, 100, duration=0.25)
+...     pyautogui.moveTo(200, 100, duration=0.25)
+...     pyautogui.moveTo(200, 200, duration=0.25)
+...     pyautogui.moveTo(100, 200, duration=0.25)
+...
+>>> for i in range(5):
+...     pyautogui.moveTo(100, 100, duration=0.25)
+...     pyautogui.moveTo(200, 100, duration=0.25)
+...     pyautogui.moveTo(200, 200, duration=0.25)
+...     pyautogui.moveTo(100, 200, duration=0.25)
+...
+>>> clear
+>>> for i in range(5):
+...     pyautogui.moveTo(100, 0, duration=0.25)
+...     pyautogui.moveTo(0, 100, duration=0.25)
+...     pyautogui.moveTo(-100, 0, duration=0.25)
+...     pyautogui.moveTo(0, -100, duration=0.25)
+...
+>>> for i in range(5):
+...     pyautogui.move(100, 0, duration=0.25)
+...     pyautogui.move(0, 100, duration=0.25)
+...     pyautogui.move(-100, 0, duration=0.25)
+...     pyautogui.move(0, -100, duration=0.25)
+...
+>>> pyautogui.position()
+Point(x=1257, y=476)
+>>> pyautogui.position()
+Point(x=360, y=233)
+>>> p = pyautogui.position()
+>>> p
+Point(x=210, y=680)
+>>> p[0]
+210
+>>> p.x
+210
+>>> pyautogui.click(10,5)
+>>> pwd
+'/Users/haleyharris/Desktop/belhavencsc/csc221/hw8/examples'
+>>> pyautogui.position()
+Point(x=439, y=372)
+>>> pyautogui.scroll(200)
+>>> pyautogui.scroll(200)
+>>> pyautogui.mouseInfor()
+>>> pyautogui.mouseInfo()
+>>> pyautogui.mouseInfo()
+>>> im = pyautogui.screenshot()
+>>> pyautogui.pixel((0,0))
+>>> pyautogui.pixel((0, 0))
+>>> pyautogui.pixel((50, 200))
+>>> pyautogui.pixel(50, 200)
+RGB(red=16, green=13, blue=21)
+>>> pyautogui.pixel(0, 0)
+RGB(red=30, green=25, blue=42)
+>>> pyautogui.pixelMatchesColor(50, 200, (30, 25, 42))
+False
+>>> pyautogui.pixelMatchesColor(50, 200, (16, 13, 21))
+True
+>>> b = pyautogui.locateOnScreen('screen.png')
+>>> b = pyautogui.locateOnScreen('screen.png')
+>>> b
+>>> b[0]
+>>> %history -o -p -f shell_examples.txt
